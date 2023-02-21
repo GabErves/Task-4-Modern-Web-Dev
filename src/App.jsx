@@ -1,9 +1,7 @@
-
-
 import React from 'react'
 import SearchBar from '../components/SearchBar'
 import Movies from '../components/Movies'
-import movieList from '../utils/movies'
+import movieData from '../utils/movies'
 import { useState, useEffect } from 'react'
 
 
@@ -16,49 +14,34 @@ function App() {
   const [sortLength, setSortLength] = useState('asc');
 
   
-
-
-  
-  
   useEffect(() => {
   
-    
-    setMovies(movieList.filter(movie => {
+    setMovies(movieData.filter(movie => {
       return (movie.title.toUpperCase().includes(search.toUpperCase())) &&
         ([NaN,0].includes(parseInt(maxLength,10)) || parseInt(maxLength,10) >= movie.length )
     }));
     if(sortLength=='asc'){
-      movieList.sort((a, b)=>(a.length-b.length));
+      movieData.sort((a, b)=>(a.length - b.length));
     }else{
-      movieList.sort((a, b)=>(b.length-a.length));
+      movieData.sort((a, b)=>(b.length - a.length));
     }
-
-
-
-    
-    
-    
-
-  
   
   }, [search, maxLength, sortLength]);
   
 
-  
-
-
-
-
-
 
   return (
     <>
-      
+  <h1>Movie List</h1>
+      <SearchBar 
+      search={search} 
+      setSearch={setSearch} 
+      maxLength={maxLength} 
+      setMaxLength={setMaxLength} 
+      sortLength={sortLength} 
+      setSortLength={setSortLength}/>
 
-      
-      <SearchBar search={search} setSearch={setSearch} maxLength={maxLength} setMaxLength={setMaxLength} sortLength={sortLength} setSortLength={setSortLength}/>
       <Movies movies={movies} />
-     
       
     </>
   )

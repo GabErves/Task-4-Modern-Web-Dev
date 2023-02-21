@@ -1,5 +1,5 @@
 
-
+import movieData from '../utils/movies'
 import { useState } from "react";
 
 
@@ -13,13 +13,12 @@ const SearchBar =function({search, setSearch, maxLength, setMaxLength, sortLengt
         setMaxLength(e.target.value);
     }
     const lengthSortHandler =() =>{
-        if(sortLength=='asc'){
-          setSortLength('dec');
-          
-        }else{
-          setSortLength('asc');
+    if(sortLength=='asc'){
+        setSortLength('dec');
+    }else{
+        setSortLength('asc');
         }
-      }
+    }
     return <>
     
     <label htmlFor="search">Search Query</label>
@@ -27,8 +26,7 @@ const SearchBar =function({search, setSearch, maxLength, setMaxLength, sortLengt
     <label htmlFor="max-length" >Max Length</label>
     <input type="number" name="maxLength" onChange={maxLengthHandler} value={maxLength}></input>
     <button onClick={lengthSortHandler} className="relative inline-block text-lg group">
-          <span className="relative">Sort Movies</span>
-          
+    <span className="relative">Sort Movies</span> 
     </button>
     
     
