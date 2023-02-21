@@ -26,10 +26,9 @@ const SearchBar =function({search, setSearch, maxLength, setMaxLength, sortLengt
     <label htmlFor="max-length" >Max Length</label>
     <input type="number" name="maxLength" onChange={maxLengthHandler} value={maxLength}></input>
     <button onClick={lengthSortHandler} className="relative inline-block text-lg group">
-    <span className="relative">Sort Movies</span> 
+    Sort Movies
     </button>
-    
-    
+   
     
     
     
